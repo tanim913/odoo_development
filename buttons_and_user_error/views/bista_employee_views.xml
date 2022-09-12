@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <!-- Menu/Butoon ===> Action ====> View -->
+        <record id="view_bista_employee_tree" model="ir.ui.view">
+            <field name="name">bista.employee.tree</field>
+            <field name="model">bista.employee</field>
+            <field name="arch" type="xml">
+                <tree string="Employee">
+                    <field name="employee_id"/>
+                    <field name="name"/>
+                    <field name="joining_date"/>
+                    <field name="marital_status"/>
+                    <field name="employee_photos" widget="image"/>
+                    <field name="designation"/>
+                    <field name="salary"/>
+                    <field name="leave_remaining"/>
+                    <field name="on_leave"/>
+                    <field name="payment_ammount"/>
+                    <field name="mbti"/>
+                        
+
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="view_bista_employee_form" model="ir.ui.view">
+            <field name="name">bista.employee.form</field>
+            <field name="model">bista.employee</field>
+            <field name="arch" type="xml">
+                <form string="Employee">
+
+                    <header>
+                        <button name="calculate_salary" class="btn btn-primary" string="Calculate Salary" type="object" />
+                        <button name="view_information" class="btn btn-primary" string="Assignment Information" type="object" />
+                    </header>
+                    
+                    <sheet>
+
+                        <group string="Profile Picture">
+                            <field name="employee_photos" widget="image"/>
+                        </group>
+
+                        <group>
+                            <group string="Personal Information">
+                                <field name="name"/>
+                                <field name="employee_id"/>
+                                <field name="marital_status"/>
+                                <field name="designation"/>
+                            </group>
+
+                            <group string="Work Informations">
+                                <field name="joining_date"/>
+                                <field name="salary"/>
+                                <field name="leave_remaining"/>
+                                <field name="on_leave"/>
+                                <field name="payment_ammount"/>
+                                
+                            </group>
+                        </group>
+                        
+                        <group string="Assignment">
+                                <field name="assigned_task"/>
+                                <field name="supervisor"/>  
+                                <field name="assigned_on"/>
+                                <field name="deadline"/>  
+
+
+                        </group>
+
+                        <group string="Personality">
+                            <field name="mbti"/>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_bista_employee_list" model="ir.actions.act_window">
+            <field name="name">Employee List</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">bista.employee</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem 
+            id="menu_bista_employee_module"
+            name="Bista Employee"
+            sequence="1"/>
+        
+        <menuitem 
+            id="menu_bista_employee_module_employee_list"
+            name="Employee(s)"
+            parent="menu_bista_employee_module"
+            action="action_bista_employee_list"
+            sequence="1"/>
+        
+
+</odoo>
