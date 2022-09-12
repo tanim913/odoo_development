@@ -42,10 +42,10 @@ class BistaEmployee(models.Model):
 
         elif difference >= 12 :
             new_salary=self.payment_ammount+20000
-            raise UserError("current salary is :"+str(new_salary))
+            raise UserError("current salary is : "+str(new_salary))
 
         else:
-            raise UserError("current salary is :"+str(self.payment_ammount))
+            raise UserError("current salary is : "+str(self.payment_ammount))
 
 
 
