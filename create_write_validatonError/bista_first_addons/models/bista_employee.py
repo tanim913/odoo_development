@@ -49,9 +49,15 @@ class BistaEmployee(models.Model):
         if vals['first_name'] != False and vals['last_name'] != False:
             vals['name'] = vals['first_name'] + " " + vals['last_name']
          
-        # if len(vals['contact_no']) < 11 or len(vals['contact_no']) > 11:
-        #     raise ValidationError("Invalid Contact Number")
+        if len(vals['contact_no']) < 11 or len(vals['contact_no']) > 11:
+            raise ValidationError("Invalid Contact Number")
+        
+        phone_number = vals['contact_no']
 
+        if phone_number[:3] != '+88' and len(phone_number) == 11:
+            phone_number = "+88" + phone_number
+            vals['contact_no'] = phone_number
+            
         result = super(BistaEmployee,self).create(vals)
         
         #print("vals1-------",vals)
