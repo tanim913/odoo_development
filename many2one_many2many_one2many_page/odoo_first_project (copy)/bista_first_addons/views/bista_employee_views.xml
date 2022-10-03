@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Menu/Butoon ===> Action ====> View -->
+    <record id="view_bista_employee_tree" model="ir.ui.view">
+        <field name="name">bista.employee.tree</field>
+        <field name="model">bista.employee</field>
+        <field name="arch" type="xml">
+            <tree string="Employee">
+                <field name="employee_id" />
+                <field name="first_name" />
+                <field name="last_name" />
+                <field name="name" />
+                <field name="joining_date" />
+                <field name="marital_status" />
+                <field name="employee_photos" widget="image" />
+                <field name="designation" />
+                <field name="experience" />
+                <field name="salary" />
+                <field name="leave_remaining" />
+                <field name="on_leave" />
+                <field name="payment_ammount" />
+                <field name="mbti" />
+                <field name="contact_no" />
+                <field name="date_of_birth" />
+                <field name="age" />
+                <field name="date" />
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_bista_employee_search" model="ir.ui.view">
+        <field name="name">bista.employee.search</field>
+        <field name="model">bista.employee</field>
+        <field name="arch" type="xml">
+            <search string="Employee">
+                <field name="name" />
+                <field name="contact_no" />
+                <field name="mbti" />
+                <!-- Filter -->
+                <filter name="phone_bd" string="Bangladeshi Phone Number" domain="[('contact_no', 'ilike', '+88')]" />
+                <separator />
+                <filter name="introverts" string="Introvert Employees" domain="[('mbti', 'ilike', 'I')]" />
+                <!-- Group By -->
+                <group expand="1" string="Group By">
+                    <filter name="mbti_type" string="MBTI" context="{'group_by': 'mbti'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_bista_employee_form" model="ir.ui.view">
+        <field name="name">bista.employee.form</field>
+        <field name="model">bista.employee</field>
+        <field name="arch" type="xml">
+            <form string="Employee">
+
+                <header>
+                    <button name="calculate_salary" class="btn btn-primary" string="Calculate Salary" type="object" />
+                    <button name="view_information" class="btn btn-primary" string="Assignment Information" type="object" />
+                </header>
+
+                <sheet>
+
+                    <group string="Profile Picture">
+                        <field name="employee_photos" widget="image" />
+                    </group>
+
+                    <group string="Today">
+                        <field name="date" />
+                    </group>
+
+                    <notebook>
+                        <page string="Personal Information" name='personal_information'>
+                            <group>
+                                <field name="first_name" />
+                                <field name="last_name" />
+                                <field name="name" />
+                                <field name="employee_id" />
+                                <field name="marital_status" />
+                                <field name="designation" />
+                                <field name="job_position_id" />
+                                <field name="job_position_ids" widget="many2many_tags" />
+                                <field name="experience" />
+                                <field name="contact_no" />
+                                <field name="date_of_birth" />
+                                <field name="age" />
+                            </group>
+                        </page>
+
+                        <page string="Work Informations" name='work_information'>
+                            <group>
+                                <field name="joining_date" />
+                                <field name="salary" />
+                                <field name="leave_remaining" />
+                                <field name="on_leave" />
+                                <field name="payment_ammount" />
+                            </group>
+                        </page>
+
+                        <page string="Assignment" name='assignment'>
+                            <group>
+                                <field name="assigned_task" />
+                                <field name="supervisor" />
+                                <field name="assigned_on" />
+                                <field name="deadline" />
+                            </group>
+                        </page>
+                        <page string="Type" name='type'>
+                            <group>
+                                <field name="mbti" />
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_bista_employee_list" model="ir.actions.act_window">
+        <field name="name">Employee List</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">bista.employee</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_introverts' : 1}</field>
+    </record>
+
+
+    <menuitem id="menu_bista_employee_module" name="Bista Employee" sequence="1" />
+
+    <menuitem id="menu_bista_employee_module_employee_list" name="Employee(s)" parent="menu_bista_employee_module" action="action_bista_employee_list" sequence="1" />
+
+
+</odoo>
