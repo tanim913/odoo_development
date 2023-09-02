@@ -1,0 +1,37 @@
+.explore-cities{
+    .img-container {
+        height:100px;
+        width:100px;
+    }
+
+    .country-image {
+        object-fit:cover;
+        height:100%;
+        width:100%;
+    }
+}
+
+.object-fit {
+    object-fit:cover;
+    height:100%;
+    width:100%;
+}
+
+.new-properties {
+    .property-img-container {
+        height:220px;
+    }
+}
+
+
+.footer-logo {
+    width: 100px;
+    height: auto;
+}
+
+.property-agents {
+    .agent-img-container {
+        height:150px;
+        width:150px;
+    }
+}
