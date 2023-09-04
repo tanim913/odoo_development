@@ -1,0 +1,14 @@
+.section_jewelry_making{
+    &.border-small #make_jewelry_div {
+        border:1px solid $secondary;
+    }
+    &.border-medium #make_jewelry_div {
+        border:3px solid $secondary;
+    }
+    &.border-large #make_jewelry_div {
+        border:5px solid $secondary;
+    }
+    &.border-extra-large #make_jewelry_div {
+        border:10px solid $secondary;
+    }
+}

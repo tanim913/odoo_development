@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="jewelry_making" name="Jewelry Making">
+        <section class="section_jewelry_making border-none">
+            <div class="dr-custom-carousel carousel s_cover_1 slide s_carousel_rounded">
+                <ol class="carousel-indicators light-pill d-none">
+                    <li class="active"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item oe_img_bg pb184 oe_custom_bg pt160 active"
+                        style="background-image: url('/theme_custom_web/static/src/img/making_jewerlary.png'); min-height: 723.266px;">
+                        <div class="container">
+                            <div class="row content">
+                                <div id="make_jewelry_div" class="carousel-content text-center pb40 px-4 dr-mobile-center offset-lg-3 col-lg-6 pt16 bg-white-50">
+                                    <div class="s_title pb8" data-name="Title">
+                                        <h4 class="s_title_lines text-dark">PotomacBeads</h4>
+                                    </div>
+                                    <div class="s_title pb8" data-name="Title">
+                                        <h2 class="s_title_default">
+                                            <font style="font-size: 48px;">
+                                                Premium Jewelry-Making Supplies
+                                            </font>
+                                        </h2>
+                                    </div>
+                                    <p class="lead">
+                                        <font color="#222222">
+                                            <span style="font-size: 24px;" class="bg-alpha">
+                                                that make YOU more creative
+                                            </span>
+                                        </font>
+                                    </p>
+                                    <div class="s_btn pt0 text-center pb8" data-name="Button">
+                                        <a href="#" class="btn btn-dark btn-lg">Start With a Kit</a>
+                                    </div>
+                                    <div class="s_btn pb0 pt0 text-center" data-name="Button">
+                                        <a href="#" class="btn btn-dark btn-lg">
+                                            Start With a Subscription Box
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+    </template>
+</odoo>
