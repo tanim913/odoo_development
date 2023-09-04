@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- template for our snippet -->
+    <template id="new_arrivals_snippet" name="New arrivals - Dynamic">
+        <section class="section_new_arrivals">
+            <div class="container">
+                <div class="text-center py-5">
+                    <h2 class="h1">New Arrivals</h2>
+                </div>
+
+                <!-- element to store list of cities using JS -->
+                <div class="row justify-content-center" id="new-arrivals-row">
+                    <div class="owl-carousel" id="product-carousel"/>
+                </div>
+            </div>
+        </section>
+    </template>
+
+<!--     To be used in JS for snippet options -->
+    <template id="new_arrivals_options" inherit_id="website.snippet_options">
+        <xpath expr="//div[@data-js='Box']" position="before">
+            <div data-js="NewArrivalsOptions" data-selector=".section_new_arrivals" data-drop-in=".o_mega_menu nav">
+            </div>
+        </xpath>
+    </template>
+</odoo>

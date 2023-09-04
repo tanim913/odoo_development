@@ -12,6 +12,7 @@
         'views/homepage.xml',
         'views/new_arrivals_views.xml',
         'views/snippets/jewelry_making.xml',
+        'views/snippets/new_arrivals.xml',
         'views/snippets/snippets.xml',
     ],
     'images': [
@@ -21,7 +22,10 @@
 'assets':{
         'web.assets_frontend': [
             'theme_custom_web/static/src/scss/styles.scss',
-            'theme_custom_web/static/src/scss/making_jewelry.scss'
+            'theme_custom_web/static/src/scss/making_jewelry.scss',
+            # 'theme_custom_web/static/src/js/new_arrivals.js',
+            'theme_custom_web/static/src/js/new_arrivals_owl.js',
+            'theme_custom_web/static/src/js/new_arrivals_options.js',
         ],
         'web._assets_primary_variables': [
             "theme_custom_web/static/src/scss/primary_variables.scss",

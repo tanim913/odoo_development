@@ -10,6 +10,19 @@
         width:100%;
     }
 }
+.section_new_arrivals{
+    .img-container {
+        height:100px;
+        width:100px;
+        flex-shrink: 0;
+    }
+
+    .new_product_image {
+        object-fit:cover;
+        height:100%;
+        width:100%;
+    }
+}
 
 .object-fit {
     object-fit:cover;

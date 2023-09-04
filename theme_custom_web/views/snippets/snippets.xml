@@ -3,11 +3,14 @@
     <template id="custom_snippets" inherit_id="website.snippets" name="Custom Snippets">
         <xpath expr="//div[@id='snippet_structure']" position="before">
             <div id="snippet_structure" class="o_panel">
-                <div class="o_panel_header">Jwelary Making</div>
+                <div class="o_panel_header">Jewelry Making</div>
                 <div class="o_panel_body">
                     <t t-snippet="theme_custom_web.jewelry_making" t-thumbnail="/theme_custom_web/static/src/img/snippets/agents.svg">
-                        <keywords>Jwelary, Making</keywords>
+                        <keywords>Jewelry, Making</keywords>
                     </t>
+                    <t t-snippet="theme_custom_web.new_arrivals_snippet" t-thumbnail="/theme_custom_web/static/src/img/snippets/new_arrivals.svg">
+                    <keywords>new, arrivals</keywords>
+                </t>
                 </div>
             </div>
         </xpath>    
