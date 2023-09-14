@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="dynamic_navbar_toggler" name="Navbar Toggler">
+        <button type="button" t-attf-class="navbar-toggler custom-nav #{_toggler_class}" data-bs-toggle="collapse" data-bs-target="#top_menu_collapse">
+            <span class="bar-top"/>
+            <span class="bar-mid"/>
+            <span class="bar-bot"/>
+        </button>
+    </template>
+
+    <template id="template_header_space_dynamic" inherit_id="website.layout" active="False"
+        name="Custom Header">
+        <xpath expr="//header//nav" position="replace">
+            <t t-call="website.navbar">
+                <div id="top_menu_container"
+                    class="container justify-content-start justify-content-lg-between">
+                    <!-- Brand -->
+                    <a href="/" class="navbar-brand logo me-4">
+                        <h4>Spac<span>Dyna</span></h4>
+                    </a>
+                    <!-- Navbar Collapse -->
+                    <div id="top_menu_collapse"
+                        class="collapse navbar-collapse order-last order-lg-0">
+                        <t t-call="website.navbar_nav">
+                            <t t-set="_nav_class" t-valuef="flex-grow-1 right_li" />
+                            <!-- Menu -->
+                            <t t-set="index" t-value="0"/>
+                            <t t-foreach="website.menu_id.child_id" t-as="submenu">
+                                <t t-call="website.submenu">
+                                    <t t-set="item_class" t-valuef="nav-item"/>
+                                    <t t-if="submenu_index == 0">
+                                        <t t-set="link_class" t-valuef="nav-link active"/>
+                                    </t>
+                                    <t t-else="">
+                                        <t t-esc="index"/>
+                                        <t t-set="link_class" t-valuef="nav-link"/>
+                                    </t>
+                                </t>
+                            </t>
+                            <!-- Sign In -->
+                            <t t-call="portal.placeholder_user_sign_in">
+                                <t t-set="_item_class" t-valuef="nav-item"/>
+                                <t t-set="_link_class" t-valuef="nav-link fw-bold"/>
+                            </t>
+                            <!-- User Dropdown -->
+                            <t t-call="portal.user_dropdown">
+                                <t t-set="_user_name" t-value="true"/>
+                                <t t-set="_item_class" t-valuef="nav-item dropdown"/>
+                                <t t-set="_link_class" t-valuef="nav-link fw-bold"/>
+                            </t>
+                        </t>
+                        <!-- Language Selector -->
+                        <t t-call="website.placeholder_header_language_selector">
+                            <t t-set="_div_classes" t-valuef="my-auto ms-lg-2"/>
+                        </t>
+                    </div>
+                    <!-- Call To Action -->
+                    <t t-call="website.placeholder_header_call_to_action">
+                        <t t-set="_div_classes" t-valuef="ms-lg-4 main-red-button" />
+                    </t>
+                    <!-- Navbar Toggler -->
+                    <t t-call="dynamic_theme_base.dynamic_navbar_toggler">
+                        <t t-set="_toggler_class" t-valuef="ms-auto" />
+                    </t>
+                </div>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="dynaspa_header_style" inherit_id="website.snippet_options">
+        <xpath expr="//div[@data-js='HeaderLayout']//we-button" position="before">
+            <we-button title="Dynamic Space Header"
+                data-name="header_dynaspa_opt"
+                data-customize-website-views="dynamic_theme_base.template_header_space_dynamic"
+                data-customize-website-variable="'Dynamic Space Header'"
+                data-img="/website/static/src/img/snippets_options/header_template_hamburger.svg" />
+        </xpath>
+    </template>
+</odoo>

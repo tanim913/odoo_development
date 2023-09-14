@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="dynamic_website_layout" inherit_id="website.layout">
+        <xpath expr="//div[hasclass('o_footer_copyright')]" position="replace">
+            <div>
+
+            </div>
+        </xpath>
+    </template>
+
+    <template id="template_footer_dynaspa" inherit_id="website.layout" name="Space Dynamic Footer"
+        active="False">
+        <xpath expr="//div[@id='footer']" position="replace">
+            <div id="footer" class="oe_structure oe_structure_solo" t-ignore="true"
+                t-if="not no_footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p>© Copyright 2021 Space Dynamic Co. All Rights Reserved. <br />Design: <a
+                                    rel="nofollow" href="https://templatemo.com">TemplateMo</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </xpath>
+        
+    </template>
+
+    <template id="dynaspa_footer_style" inherit_id="website.snippet_options">
+        <xpath expr="//div[@data-js='WebsiteLevelColor']/we-select/we-button" position="before">
+            <we-button title="Space Dynamic Footer"
+                data-customize-website-views="dynamic_theme_base.template_footer_dynaspa"
+                data-customize-website-variable="'dynaspa'"
+                data-img="/website/static/src/img/snippets_options/footer_template_headline.svg" />
+        </xpath>
+    </template>
+</odoo>
